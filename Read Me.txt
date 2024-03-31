@@ -1,0 +1,14 @@
+The zip file contains two python file.
+app.py is the source code for the project.
+generate_chaining_va.py can be used for generating chaining variable of the choice (Only Primes).
+
+The template folder contains the HTML file for the WebPage.
+
+The project is written in Python language. 
+For the frontend HTML and Flask module was used.
+
+The project is also live on https://yadavankit671.pythonanywhere.com/
+
+Submitted by - Ankit Kumar Yadav
+Roll No. - 2128144
+Sub - Tools & Technique Lab

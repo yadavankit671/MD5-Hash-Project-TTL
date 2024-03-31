@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MD5 Project</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom right, #48c6ef, #6f86d6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+        .container {
+            text-align: center;
+            background: #fff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 400px;
+        }
+        .form-group {
+            margin-bottom: 25px;
+        }
+        input[type="text"] {
+            border: 2px solid #48c6ef;
+            border-radius: 5px;
+            padding: 10px;
+            width: calc(100% - 24px);
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #6f86d6;
+        }
+        input[type="submit"] {
+            background-color: #48c6ef;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        input[type="submit"]:hover {
+            background-color: #37aee2;
+        }
+        .output-box {
+            background-color: #e8f0fe;
+            border-left: 5px solid #48c6ef;
+            padding: 10px;
+            margin-top: 20px;
+            text-align: left;
+            border-radius: 5px;
+            font-family: monospace;
+            word-wrap: break-word;
+        }
+        .output-label {
+            font-weight: bold;
+            display: block;
+            text-align: left;
+            margin-bottom: 5px;
+        }
+    </style>
+    <script>
+        function checkInput() {
+            var messageInput = document.getElementById('message').value; // Get the value of the input field
+            var submitButton = document.getElementById('submit-btn'); // Get the submit button
+            if (messageInput.trim() === '') {
+                submitButton.disabled = true; // Disable the submit button if input is empty
+            } else {
+                submitButton.disabled = false; // Enable the submit button if input is not empty
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>MD5 Project</h1>
+        <form method="post">
+            <input type="text" id="message" name="message" placeholder="Enter your message" onkeyup="checkInput()">
+            <input type="submit" id="submit-btn" value="Submit" disabled>
+        </form>
+        {% if digest %}
+            <div class="output-box">
+                <span class="output-label">MD5 Digest:</span>
+                {{ digest }}
+            </div>
+        {% endif %}
+    </div>
+    <script>
+        // Call checkInput on page load to ensure the button is in the correct state
+        document.addEventListener('DOMContentLoaded', checkInput);
+    </script>
+</body>
+</html>
